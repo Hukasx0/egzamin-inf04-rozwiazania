@@ -5,7 +5,7 @@ Arkusze wzięte z [tej strony](https://arkusze.pl/egzamin-zawodowy-kwalifikacja-
 
 ## Podsumowanie
 
-| Sesja          | Aplikacja konsolowa                | Aplikacja mobilna                  | Aplikacja desktopowa               | Aplikacja webowa                   | Link do arkusza                   |
+| Sesja          | Aplikacja konsolowa                | Aplikacja mobilna                  | Aplikacja desktopowa               | Aplikacja webowa                   | Arkusz                   |
 |------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|-------------------------------------|
 | [czerwiec 2024](https://github.com/Hukasx0/egzamin-inf04-rozwiazania/tree/main/czerwiec-2024)    | [Link do rozwiązania](https://github.com/Hukasx0/egzamin-inf04-rozwiazania/tree/main/czerwiec-2024/aplikacja-konsolowa)           | Do zrobienia...                     | X                                   | X                                   | [Link do arkusza](https://arkusze.pl/zawodowy/inf04-2024-czerwiec-egzamin-zawodowy-praktyczny.pdf)               |
 | [styczeń 2024](https://github.com/Hukasx0/egzamin-inf04-rozwiazania/tree/main/styczen-2024)     | [Link do rozwiązania](https://github.com/Hukasx0/egzamin-inf04-rozwiazania/tree/main/styczen-2024/aplikacja-konsolowa)           | X                     | Do zrobienia...                                   | X                                   | [Link do arkusza](https://arkusze.pl/zawodowy/inf04-2024-styczen-egzamin-zawodowy-praktyczny.pdf)               |
