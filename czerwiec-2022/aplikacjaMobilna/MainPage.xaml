@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="aplikacjaMobilna.MainPage">
+
+    <!-- Ustawienie marginesu górnego dla całej strony -->
+    <VerticalStackLayout Padding="20, 20, 20, 0">
+
+        <!-- Tytuł aplikacji -->
+        <Label 
+            Text="Domek w górach" 
+            FontSize="30" 
+            HorizontalOptions="Start" 
+            TextColor="Black" 
+            Margin="0, 0, 0, 10"/>
+
+        <!-- Obrazek wypełniający całą szerokość strony -->
+        <!-- by go zmienić, należy dodać do folderu Resources\Images inny obrazek, oznaczyć go jako MauiImage w właściwościach -->
+        <!-- i zmienić Source -->
+        <Image 
+            Source="dotnet_bot.png" 
+            HorizontalOptions="FillAndExpand" 
+            Aspect="AspectFill" 
+            Margin="0, 20"/>
+
+        <!-- Przyciski w układzie Grid, bez odstępów między nimi -->
+        <Grid 
+            RowDefinitions="Auto" 
+            ColumnDefinitions="*, *, *" 
+            HorizontalOptions="FillAndExpand"
+            Margin="0, 20">
+
+            <!-- Przyciski „POLUB”, „USUŃ”, „ZAPISZ” -->
+            <Button 
+                x:Name="likeButton" 
+                Text="POLUB" 
+                BackgroundColor="#008080" 
+                TextColor="White" 
+                Grid.Column="0" 
+                HorizontalOptions="FillAndExpand"
+                Clicked="LikeButton_Clicked" />
+
+            <Button 
+                x:Name="unlikeButton" 
+                Text="USUŃ" 
+                BackgroundColor="#008080" 
+                TextColor="White" 
+                Grid.Column="1" 
+                HorizontalOptions="FillAndExpand" 
+                CornerRadius="0"
+                Clicked="UnlikeButton_Clicked" />
+
+            <Button 
+                x:Name="saveButton" 
+                Text="ZAPISZ" 
+                BackgroundColor="#008080" 
+                TextColor="White" 
+                Grid.Column="2" 
+                HorizontalOptions="FillAndExpand" 
+                CornerRadius="0"
+                Clicked="SaveButton_Clicked" />
+        </Grid>
+
+        <!-- Napis o liczbie polubień, wyrównany do prawej -->
+        <Label 
+            x:Name="likesText" 
+            Text="0 polubień" 
+            HorizontalOptions="End" 
+            Margin="0, 5" 
+            TextColor="Black" />
+
+        <!-- Linia horyzontalna koloru Gray (#808080) -->
+        <BoxView 
+            Color="#808080" 
+            HeightRequest="1" 
+            Margin="0, 10"/>
+
+        <!-- Pogrubiony napis "Opis" -->
+        <Label 
+            Text="Opis" 
+            FontAttributes="Bold" 
+            TextColor="Black" 
+            Margin="0, 5" />
+
+        <!-- Opis w kolorze Gray (#808080) -->
+        <Label 
+            Text="Odwiedź komfortowy domek w Sudetach, blisko do szlaków turystycznych" 
+            TextColor="#808080" 
+            HorizontalOptions="Start" />
+
+    </VerticalStackLayout>
+</ContentPage>
