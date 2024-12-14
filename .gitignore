@@ -109,3 +109,8 @@ czerwiec-2022/aplikacjaMobilna/*.ncb
 czerwiec-2022/aplikacjaMobilna/*.sdf
 czerwiec-2022/aplikacjaMobilna/*.opensdf
 czerwiec-2022/aplikacjaMobilna/*.sln.docstates
+
+styczen-2023/aplikacjaDesktopowa/*.vs
+styczen-2023/aplikacjaDesktopowa/.vs
+styczen-2023/aplikacjaDesktopowa/bin
+styczen-2023/aplikacjaDesktopowa/obj
