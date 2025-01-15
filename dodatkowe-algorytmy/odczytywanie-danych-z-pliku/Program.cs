@@ -1,4 +1,8 @@
-﻿namespace odczytywanie_danych_z_pliku
+using System.Collections.Generic;
+using System;
+using System.IO;
+
+namespace odczytywanie_danych_z_pliku
 {
     // Klasa reprezentująca dane o albumie muzycznym
     class MusicAlbum
@@ -42,7 +46,7 @@
                 return albums;
             }
 
-            try
+            /*try
             {
                 // Odczyt pliku
                 using (StreamReader sr = new StreamReader(fileName))
@@ -62,6 +66,62 @@
                             // Tworzenie obiektu albumu i dodanie go do listy
                             albums.Add(new MusicAlbum(title, artist, year, downloads));
                         }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Błąd przy wczytywaniu danych: {ex.Message}");
+            }*/
+
+            try
+            {
+                // Odczyt pliku
+                using (StreamReader sr = new StreamReader(fileName))
+                {
+                    string title = string.Empty;
+                    string artist = string.Empty;
+                    int year = 0;
+                    long downloads = 0;
+
+                    int lineCount = 0; // Licznik linii
+
+                    while (!sr.EndOfStream)
+                    {
+                        string line = sr.ReadLine().Trim();
+
+                        // Ignorujemy puste linie
+                        if (string.IsNullOrWhiteSpace(line)) continue;
+
+                        // Zbieranie danych z 4 kolejnych linii
+                        switch (lineCount % 4)
+                        {
+                            case 0: // Tytuł
+                                title = line;
+                                break;
+                            case 1: // Artysta
+                                artist = line;
+                                break;
+                            case 2: // Rok
+                                if (!int.TryParse(line, out year))
+                                {
+                                    Console.WriteLine($"Błąd: Nieprawidłowy rok '{line}' w linii {lineCount + 1}.");
+                                    return albums;
+                                }
+                                break;
+                            case 3: // Liczba pobrań
+                                if (!long.TryParse(line, out downloads))
+                                {
+                                    Console.WriteLine($"Błąd: Nieprawidłowa liczba pobrań '{line}' w linii {lineCount + 1}.");
+                                    return albums;
+                                }
+
+                                // Po zebraniu wszystkich danych, tworzymy obiekt albumu
+                                albums.Add(new MusicAlbum(title, artist, year, downloads));
+                                break;
+                        }
+
+                        lineCount++;
                     }
                 }
             }
