@@ -147,6 +147,131 @@ namespace najwazniejsze_algorytmy
         }
         #endregion
 
+        #region Selection Sort
+        /// <summary>
+        /// Algorytm sortowania przez wybieranie (SelectionSort)
+        /// </summary>
+        /// <param name="arr">Tablica do posortowania</param>
+        static void SelectionSort(int[] arr)
+        {
+            int n = arr.Length;
+
+            // Przechodzimy przez wszystkie elementy tablicy
+            for (int i = 0; i < n - 1; i++)
+            {
+                // Zakładamy, że aktualny element to najmniejszy
+                int minIndex = i;
+
+                // Sprawdzamy pozostałą część tablicy, aby znaleźć najmniejszy element
+                for (int j = i + 1; j < n; j++)
+                {
+                    if (arr[j] < arr[minIndex])
+                    {
+                        minIndex = j;
+                    }
+                }
+
+                // Jeśli znaleźliśmy mniejszy element, zamieniamy je miejscami
+                if (minIndex != i)
+                {
+                    Swap(arr, i, minIndex);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Funkcja pomocnicza do zamiany miejscami dwóch elementów w tablicy.
+        /// </summary>
+        /// <param name="arr">Tablica liczb</param>
+        /// <param name="i">Indeks pierwszego elementu</param>
+        /// <param name="j">Indeks drugiego elementu</param>
+        static void Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        #endregion
+
+        #region Bucket Sort
+        /// <summary>
+        /// Algorytm sortowania przez kubełki (BucketSort).
+        /// Zakłada, że dane są liczbami zmiennoprzecinkowymi w zakresie [0, 1).
+        /// </summary>
+        /// <param name="arr">Tablica do posortowania</param>
+        static void BucketSort(double[] arr)
+        {
+            if (arr.Length <= 1)
+                return;
+
+            // 1. Znalezienie maksymalnej wartości w tablicy, aby określić liczbę kubełków
+            double maxValue = arr[0];
+            for (int i = 1; i < arr.Length; i++)
+            {
+                if (arr[i] > maxValue)
+                {
+                    maxValue = arr[i];
+                }
+            }
+
+            // 2. Tworzymy kubełki
+            int numberOfBuckets = arr.Length;
+            List<double>[] buckets = new List<double>[numberOfBuckets];
+
+            // Inicjalizujemy puste kubełki
+            for (int i = 0; i < numberOfBuckets; i++)
+            {
+                buckets[i] = new List<double>();
+            }
+
+            // 3. Rozdzielamy elementy do odpowiednich kubełków
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int index = (int)(arr[i] * numberOfBuckets); // Określamy kubełek dla danego elementu
+                buckets[index].Add(arr[i]);
+            }
+
+            // 4. Sortujemy każdy kubełek za pomocą Insertion Sort
+            for (int i = 0; i < numberOfBuckets; i++)
+            {
+                InsertionSort(buckets[i]);
+            }
+
+            // 5. Łączymy elementy z poszczególnych kubełków z powrotem do tablicy
+            int currentIndex = 0;
+            for (int i = 0; i < numberOfBuckets; i++)
+            {
+                foreach (var item in buckets[i])
+                {
+                    arr[currentIndex++] = item;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Algorytm sortowania przez wstawianie (InsertionSort) na jednej liście.
+        /// Jest używany do sortowania elementów w każdym kubełku.
+        /// </summary>
+        /// <param name="bucket">Lista elementów do posortowania</param>
+        static void InsertionSort(List<double> bucket)
+        {
+            int n = bucket.Count;
+            for (int i = 1; i < n; i++)
+            {
+                double current = bucket[i];
+                int j = i - 1;
+
+                // Przesuwamy większe elementy w prawo, aby zrobić miejsce dla bieżącego
+                while (j >= 0 && bucket[j] > current)
+                {
+                    bucket[j + 1] = bucket[j];
+                    j--;
+                }
+                bucket[j + 1] = current;
+            }
+        }
+        #endregion
+
         #region Merge Sort
         // Algorytm sortowania przez scalanie (MergeSort)
         static void MergeSort(int[] arr)
