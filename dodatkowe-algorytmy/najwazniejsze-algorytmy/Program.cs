@@ -275,6 +275,148 @@ namespace najwazniejsze_algorytmy
         }
         #endregion
 
+        #region Heap Sort
+        /// <summary>
+        /// Algorytm sortowania przez kopcowanie (Heap Sort)
+        /// </summary>
+        /// <param name="arr">Tablica liczb do posortowania</param>
+        static void HeapSort(int[] arr)
+        {
+            int n = arr.Length;
+
+            // 1. Budowanie kopca (max-heap)
+            // Zaczynamy od ostatniego węzła, który ma dzieci, czyli od n/2 - 1
+            for (int i = n / 2 - 1; i >= 0; i--)
+            {
+                Heapify(arr, n, i);
+            }
+
+            // 2. Sortowanie - Usuwanie największego elementu (korzenia kopca)
+            for (int i = n - 1; i >= 1; i--)
+            {
+                // Zamiana korzenia (największego elementu) z ostatnim elementem
+                Swap(arr, 0, i);
+
+                // Przywracanie właściwości kopca na korzeniu (Heapify)
+                Heapify(arr, i, 0);
+            }
+        }
+
+        /// <summary>
+        /// Funkcja Heapify zapewnia, że poddrzewo z korzeniem w indeksie i jest kopcem maksymalnym.
+        /// </summary>
+        /// <param name="arr">Tablica liczb</param>
+        /// <param name="n">Rozmiar tablicy (lub rozmiar kopca w danym kroku)</param>
+        /// <param name="i">Indeks korzenia poddrzewa, które ma zostać uporządkowane</param>
+        static void Heapify(int[] arr, int n, int i)
+        {
+            int largest = i; // Zakładamy, że korzeń jest największy
+            int left = 2 * i + 1; // Indeks lewego dziecka
+            int right = 2 * i + 2; // Indeks prawego dziecka
+
+            // Sprawdzamy, czy lewe dziecko jest większe niż korzeń
+            if (left < n && arr[left] > arr[largest])
+            {
+                largest = left;
+            }
+
+            // Sprawdzamy, czy prawe dziecko jest większe niż korzeń (lub lewe dziecko)
+            if (right < n && arr[right] > arr[largest])
+            {
+                largest = right;
+            }
+
+            // Jeśli największy element nie jest korzeniem, zamieniamy je miejscami
+            if (largest != i)
+            {
+                Swap(arr, i, largest);
+
+                // Rekurencyjnie przywracamy właściwości kopca dla zmienionego poddrzewa
+                Heapify(arr, n, largest);
+            }
+        }
+
+        /// <summary>
+        /// Funkcja pomocnicza do zamiany miejscami dwóch elementów w tablicy.
+        /// </summary>
+        /// <param name="arr">Tablica liczb</param>
+        /// <param name="i">Indeks pierwszego elementu</param>
+        /// <param name="j">Indeks drugiego elementu</param>
+        static void Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+        #endregion
+
+        #region Cycle Sort
+        /// <summary>
+        /// Algorytm Cycle Sort, który sortuje tablicę bez używania dodatkowej przestrzeni.
+        /// </summary>
+        /// <param name="arr">Tablica do posortowania</param>
+        static void CycleSort(int[] arr)
+        {
+            int n = arr.Length;
+
+            // Przechodzimy przez wszystkie elementy tablicy
+            for (int cycleStart = 0; cycleStart < n - 1; cycleStart++)
+            {
+                // Zaczynamy cykl od elementu cycleStart
+                int item = arr[cycleStart];
+
+                // Znajdujemy pozycję, do której powinien trafić element
+                int pos = cycleStart;
+                for (int i = cycleStart + 1; i < n; i++)
+                {
+                    if (arr[i] < item)
+                    {
+                        pos++;
+                    }
+                }
+
+                // Jeśli element już znajduje się na odpowiedniej pozycji, nie wykonujemy żadnej zamiany
+                if (pos == cycleStart)
+                {
+                    continue;
+                }
+
+                // Umieszczamy element w odpowiedniej pozycji
+                if (arr[pos] == item)
+                {
+                    continue;  // Jeśli element jest już na tej pozycji, nic nie robimy
+                }
+                int temp = item;
+                item = arr[pos];
+                arr[pos] = temp;
+
+                // Wykonujemy przesuwanie elementów, aby umieścić je na odpowiednich miejscach
+                while (pos != cycleStart)
+                {
+                    pos = cycleStart;
+
+                    // Znajdujemy nową pozycję, na którą należy przesunąć element
+                    for (int i = cycleStart + 1; i < n; i++)
+                    {
+                        if (arr[i] < item)
+                        {
+                            pos++;
+                        }
+                    }
+
+                    // Wstawiamy element w odpowiednie miejsce
+                    if (item == arr[pos])
+                    {
+                        break;
+                    }
+                    temp = item;
+                    item = arr[pos];
+                    arr[pos] = temp;
+                }
+            }
+        }
+        #endregion
+
         #region Counting Sort
         // Algorytm sortowania przez zliczanie (CountingSort)
         // Sortowanie liczb całkowitych o określonym zakresie wartości.
