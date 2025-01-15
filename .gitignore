@@ -207,6 +207,7 @@ Desktop.ini
 /inne/frontend-angular-przyklad/.vscode
 
 # Miscellaneous
+/inne/frontend-angular-przyklad/.angular
 /inne/frontend-angular-przyklad/.angular/cache
 /inne/frontend-angular-przyklad/.sass-cache/
 /inne/frontend-angular-przyklad/connect.lock
@@ -218,3 +219,46 @@ Desktop.ini
 # System files
 /inne/frontend-angular-przyklad/.DS_Store
 /inne/frontend-angular-przyklad/Thumbs.db
+
+# Compiled output
+/inne/frontend-angular-przyklad2/dist
+/inne/frontend-angular-przyklad2/tmp
+/inne/frontend-angular-przyklad2/out-tsc
+/inne/frontend-angular-przyklad2/bazel-out
+
+# Node
+/inne/frontend-angular-przyklad2/node_modules
+/inne/frontend-angular-przyklad2/npm-debug.log
+/inne/frontend-angular-przyklad2/yarn-error.log
+
+# IDEs and editors
+/inne/frontend-angular-przyklad2/.idea/
+/inne/frontend-angular-przyklad2/.project
+/inne/frontend-angular-przyklad2/.classpath
+/inne/frontend-angular-przyklad2/.c9/
+/inne/frontend-angular-przyklad2/*.launch
+/inne/frontend-angular-przyklad2/.settings/
+/inne/frontend-angular-przyklad2/*.sublime-workspace
+
+# Visual Studio Code
+/inne/frontend-angular-przyklad2/.vscode/*
+/inne/frontend-angular-przyklad2/!.vscode/settings.json
+/inne/frontend-angular-przyklad2/!.vscode/tasks.json
+/inne/frontend-angular-przyklad2/!.vscode/launch.json
+/inne/frontend-angular-przyklad2/!.vscode/extensions.json
+/inne/frontend-angular-przyklad2/.history/*
+/inne/frontend-angular-przyklad2/.vscode
+
+# Miscellaneous
+/inne/frontend-angular-przyklad2/.angular
+/inne/frontend-angular-przyklad2/.angular/cache
+/inne/frontend-angular-przyklad2/.sass-cache/
+/inne/frontend-angular-przyklad2/connect.lock
+/inne/frontend-angular-przyklad2/coverage
+/inne/frontend-angular-przyklad2/libpeerconnection.log
+/inne/frontend-angular-przyklad2/testem.log
+/inne/frontend-angular-przyklad2/typings
+
+# System files
+/inne/frontend-angular-przyklad2/.DS_Store
+/inne/frontend-angular-przyklad2/Thumbs.db
