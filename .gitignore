@@ -155,3 +155,24 @@ Thumbs.db
 Desktop.ini
 
 inne/frontend-angular-przyklad
+
+/inne/backend-przyklad-sqlite/bin/
+/inne/backend-przyklad-sqlite/obj/
+/inne/backend-przyklad-sqlite/project.lock.json
+/inne/backend-przyklad-sqlite/project.fragment.lock.json
+/inne/backend-przyklad-sqlite/artifacts/
+
+/inne/backend-przyklad-sqlite/.vs/
+/inne/backend-przyklad-sqlite/.vscode/
+/inne/backend-przyklad-sqlite/.idea/
+
+/inne/backend-przyklad-sqlite/.idea/
+
+/inne/backend-przyklad-sqlite/app_data/
+/inne/backend-przyklad-sqlite/App_Data/
+
+/inne/backend-przyklad-sqlite/.history/
+
+/inne/backend-przyklad-sqlite/node_modules/
+
+/inne/backend-przyklad-sqlite/.vscode/
