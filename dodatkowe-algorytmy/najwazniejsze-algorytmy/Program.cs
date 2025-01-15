@@ -116,6 +116,37 @@ namespace najwazniejsze_algorytmy
             }
         }
 
+        // Metoda Partition wybiera pivot (element rozdzielający) i ustawia go w odpowiedniej pozycji
+        // Wszystkie elementy mniejsze od pivota są po jego lewej stronie, a większe po prawej.
+        static int Partition(int[] arr, int low, int high)
+        {
+            int pivot = arr[high];  // Wybieramy ostatni element tablicy jako pivot
+            int i = low - 1;  // Ustawiamy wskaźnik i na początek tablicy
+
+            for (int j = low; j < high; j++)  // Przechodzimy przez tablicę
+            {
+                // Jeśli aktualny element jest mniejszy lub równy pivotowi
+                if (arr[j] <= pivot)
+                {
+                    i++;  // Przesuwamy wskaźnik i
+                    Swap(arr, i, j);  // Zamieniamy elementy
+                }
+            }
+
+            // Przenosimy pivot na właściwą pozycję
+            Swap(arr, i + 1, high);
+            return i + 1;  // Zwracamy indeks pivota
+        }
+
+        // Metoda Swap zamienia miejscami dwa elementy w tablicy
+        static void Swap(int[] arr, int i, int j)
+        {
+            int temp = arr[i];  // Zapisujemy element i do zmiennej pomocniczej
+            arr[i] = arr[j];  // Przypisujemy element j do pozycji i
+            arr[j] = temp;  // Przypisujemy zapisany element i do pozycji j
+        }
+        #endregion
+
         #region Merge Sort
         // Algorytm sortowania przez scalanie (MergeSort)
         static void MergeSort(int[] arr)
@@ -173,36 +204,35 @@ namespace najwazniejsze_algorytmy
         }
         #endregion
 
-        // Metoda Partition wybiera pivot (element rozdzielający) i ustawia go w odpowiedniej pozycji
-        // Wszystkie elementy mniejsze od pivota są po jego lewej stronie, a większe po prawej.
-        static int Partition(int[] arr, int low, int high)
+        // Algorytm zliczania wystąpień liczb w tablicy
+        static void CountOccurrences(int[] arr)
         {
-            int pivot = arr[high];  // Wybieramy ostatni element tablicy jako pivot
-            int i = low - 1;  // Ustawiamy wskaźnik i na początek tablicy
+            // Tworzymy słownik, który będzie przechowywał liczbę wystąpień każdej liczby
+            Dictionary<int, int> occurrences = new Dictionary<int, int>();
 
-            for (int j = low; j < high; j++)  // Przechodzimy przez tablicę
+            // Iterujemy przez tablicę i zliczamy wystąpienia
+            foreach (int num in arr)
             {
-                // Jeśli aktualny element jest mniejszy lub równy pivotowi
-                if (arr[j] <= pivot)
+                if (occurrences.ContainsKey(num))
                 {
-                    i++;  // Przesuwamy wskaźnik i
-                    Swap(arr, i, j);  // Zamieniamy elementy
+                    occurrences[num]++;
+                }
+                else
+                {
+                    occurrences[num] = 1;
                 }
             }
 
-            // Przenosimy pivot na właściwą pozycję
-            Swap(arr, i + 1, high);
-            return i + 1;  // Zwracamy indeks pivota
+            // Wypisujemy liczby, które występują co najmniej dwa razy
+            Console.WriteLine("\nLiczby, które występują co najmniej dwa razy:");
+            foreach (var entry in occurrences)
+            {
+                if (entry.Value >= 2)
+                {
+                    Console.WriteLine($"Liczba {entry.Key} występuje {entry.Value} razy");
+                }
+            }
         }
-
-        // Metoda Swap zamienia miejscami dwa elementy w tablicy
-        static void Swap(int[] arr, int i, int j)
-        {
-            int temp = arr[i];  // Zapisujemy element i do zmiennej pomocniczej
-            arr[i] = arr[j];  // Przypisujemy element j do pozycji i
-            arr[j] = temp;  // Przypisujemy zapisany element i do pozycji j
-        }
-        #endregion
 
         #region Insertion Sort
         // Algorytm sortowania przez wstawianie (InsertionSort)
