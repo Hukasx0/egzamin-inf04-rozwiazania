@@ -49,15 +49,28 @@
             Console.Write("Wybierz opcję (1 lub 2): ");
 
             // Pobranie wyboru użytkownika
-            int wybor = int.Parse(Console.ReadLine()!);
+            int wybor;
+            if (!int.TryParse(Console.ReadLine(), out wybor) || (wybor != 1 && wybor != 2))
+            {
+                Console.WriteLine("Błędny wybór! Program zostaje zakończony.");
+                return; // Zakończenie programu, jeśli użytkownik podał niepoprawną wartość
+            }
 
             // Pobranie tekstu do przetworzenia
             Console.Write("Podaj tekst: ");
             string tekst = Console.ReadLine()!;
 
             // Pobranie przesunięcia (klucza)
+            int przesunięcie;
             Console.Write("Podaj przesunięcie (1-25): ");
-            int przesunięcie = int.Parse(Console.ReadLine()!);
+            if (!int.TryParse(Console.ReadLine(), out przesunięcie) || przesunięcie < 1 || przesunięcie > 25)
+            {
+                Console.WriteLine("Błędne przesunięcie! Program zostaje zakończony.");
+                return; // Zakończenie programu, jeśli użytkownik podał niepoprawną liczbę
+            }
+
+            // Upewnienie się, że przesunięcie mieści się w zakresie 0-25
+            przesunięcie = przesunięcie % 26;
 
             // Wywołanie odpowiedniej funkcji w zależności od wyboru
             string wynik = wybor == 1
@@ -68,5 +81,6 @@
             Console.WriteLine($"Wynik: {wynik}");
             Console.ReadKey();
         }
+
     }
 }
