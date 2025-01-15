@@ -116,6 +116,63 @@ namespace najwazniejsze_algorytmy
             }
         }
 
+        #region Merge Sort
+        // Algorytm sortowania przez scalanie (MergeSort)
+        static void MergeSort(int[] arr)
+        {
+            // Jeśli tablica ma więcej niż jeden element, dzielimy ją i sortujemy
+            if (arr.Length <= 1) return;
+
+            int mid = arr.Length / 2;  // Znajdowanie środka tablicy
+            int[] left = arr.Take(mid).ToArray();  // Lewa część tablicy
+            int[] right = arr.Skip(mid).ToArray();  // Prawa część tablicy
+
+            MergeSort(left);  // Rekurencyjnie sortujemy lewą część
+            MergeSort(right);  // Rekurencyjnie sortujemy prawą część
+
+            // Scalanie posortowanych części
+            Merge(arr, left, right);
+        }
+
+        // Funkcja pomocnicza do scalania dwóch posortowanych tablic
+        static void Merge(int[] arr, int[] left, int[] right)
+        {
+            int i = 0, j = 0, k = 0;
+
+            // Scalanie obu tablic w jedną
+            while (i < left.Length && j < right.Length)
+            {
+                if (left[i] <= right[j])
+                {
+                    arr[k] = left[i];
+                    i++;
+                }
+                else
+                {
+                    arr[k] = right[j];
+                    j++;
+                }
+                k++;
+            }
+
+            // Jeśli w lewej tablicy zostały jakieś elementy
+            while (i < left.Length)
+            {
+                arr[k] = left[i];
+                i++;
+                k++;
+            }
+
+            // Jeśli w prawej tablicy zostały jakieś elementy
+            while (j < right.Length)
+            {
+                arr[k] = right[j];
+                j++;
+                k++;
+            }
+        }
+        #endregion
+
         // Metoda Partition wybiera pivot (element rozdzielający) i ustawia go w odpowiedniej pozycji
         // Wszystkie elementy mniejsze od pivota są po jego lewej stronie, a większe po prawej.
         static int Partition(int[] arr, int low, int high)
