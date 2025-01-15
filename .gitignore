@@ -154,8 +154,6 @@ czerwiec-2023/aplikacjaDesktopowa/obj
 Thumbs.db
 Desktop.ini
 
-inne/frontend-angular-przyklad
-
 /inne/backend-przyklad-sqlite/bin/
 /inne/backend-przyklad-sqlite/obj/
 /inne/backend-przyklad-sqlite/project.lock.json
@@ -176,3 +174,47 @@ inne/frontend-angular-przyklad
 /inne/backend-przyklad-sqlite/node_modules/
 
 /inne/backend-przyklad-sqlite/.vscode/
+
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# Compiled output
+/inne/frontend-angular-przyklad/dist
+/inne/frontend-angular-przyklad/tmp
+/inne/frontend-angular-przyklad/out-tsc
+/inne/frontend-angular-przyklad/bazel-out
+
+# Node
+/inne/frontend-angular-przyklad/node_modules
+/inne/frontend-angular-przyklad/npm-debug.log
+/inne/frontend-angular-przyklad/yarn-error.log
+
+# IDEs and editors
+/inne/frontend-angular-przyklad/.idea/
+/inne/frontend-angular-przyklad/.project
+/inne/frontend-angular-przyklad/.classpath
+/inne/frontend-angular-przyklad/.c9/
+/inne/frontend-angular-przyklad/*.launch
+/inne/frontend-angular-przyklad/.settings/
+/inne/frontend-angular-przyklad/*.sublime-workspace
+
+# Visual Studio Code
+/inne/frontend-angular-przyklad/.vscode/*
+/inne/frontend-angular-przyklad/!.vscode/settings.json
+/inne/frontend-angular-przyklad/!.vscode/tasks.json
+/inne/frontend-angular-przyklad/!.vscode/launch.json
+/inne/frontend-angular-przyklad/!.vscode/extensions.json
+/inne/frontend-angular-przyklad/.history/*
+/inne/frontend-angular-przyklad/.vscode
+
+# Miscellaneous
+/inne/frontend-angular-przyklad/.angular/cache
+/inne/frontend-angular-przyklad/.sass-cache/
+/inne/frontend-angular-przyklad/connect.lock
+/inne/frontend-angular-przyklad/coverage
+/inne/frontend-angular-przyklad/libpeerconnection.log
+/inne/frontend-angular-przyklad/testem.log
+/inne/frontend-angular-przyklad/typings
+
+# System files
+/inne/frontend-angular-przyklad/.DS_Store
+/inne/frontend-angular-przyklad/Thumbs.db
