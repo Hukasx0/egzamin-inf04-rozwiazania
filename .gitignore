@@ -154,6 +154,27 @@ czerwiec-2023/aplikacjaDesktopowa/obj
 Thumbs.db
 Desktop.ini
 
+/inne/backend-przyklad-z-plikami/bin/
+/inne/backend-przyklad-z-plikami/obj/
+/inne/backend-przyklad-z-plikami/project.lock.json
+/inne/backend-przyklad-z-plikami/project.fragment.lock.json
+/inne/backend-przyklad-z-plikami/artifacts/
+
+/inne/backend-przyklad-z-plikami/.vs/
+/inne/backend-przyklad-z-plikami/.vscode/
+/inne/backend-przyklad-z-plikami/.idea/
+
+/inne/backend-przyklad-z-plikami/.idea/
+
+/inne/backend-przyklad-z-plikami/app_data/
+/inne/backend-przyklad-z-plikami/App_Data/
+
+/inne/backend-przyklad-z-plikami/.history/
+
+/inne/backend-przyklad-z-plikami/node_modules/
+
+/inne/backend-przyklad-z-plikami/.vscode/
+
 /inne/backend-przyklad-sqlite/bin/
 /inne/backend-przyklad-sqlite/obj/
 /inne/backend-przyklad-sqlite/project.lock.json
