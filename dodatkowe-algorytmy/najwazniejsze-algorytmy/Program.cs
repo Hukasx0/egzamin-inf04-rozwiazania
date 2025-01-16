@@ -86,6 +86,21 @@ namespace najwazniejsze_algorytmy
             string pattern = "ABC";
             int index2 = KMPSearch(text, pattern);
             Console.WriteLine($"Wzorzec znaleziony na indeksie: {index2}");
+
+            // Szyfrowanie tekstu przy użyciu słownika
+            string text = "abcdefg";  // Przykładowy tekst do zaszyfrowania
+
+            // Słownik szyfru literowego
+            Dictionary<char, char> cipher = CreateCipher();
+
+            // Wyświetlenie przed szyfrowaniem
+            Console.WriteLine("Oryginalny tekst: " + text);
+
+            // Szyfrowanie tekstu
+            string encryptedText = EncryptText(text, cipher);
+
+            // Wyświetlenie zaszyfrowanego tekstu
+            Console.WriteLine("Zaszyfrowany tekst: " + encryptedText);
         }
 
         // Metoda pomocnicza do wyświetlania tablicy
@@ -97,6 +112,46 @@ namespace najwazniejsze_algorytmy
                 Console.Write(element + " ");  // Wypisz element i oddziel go spacją
             }
             Console.WriteLine();  // Po zakończeniu wypisywania elementów, przejdź do nowej linii
+        }
+
+        // Funkcja tworząca słownik szyfru
+        static Dictionary<char, char> CreateCipher()
+        {
+            // Definiujemy szyfr literowy
+            return new Dictionary<char, char>()
+            {
+                {'a', 'g'}, {'b', 'f'}, {'c', 'z'}, {'d', 'k'}, {'e', 'm'},
+                {'f', 'x'}, {'g', 'l'}, {'h', 'n'}, {'i', 'p'}, {'j', 'v'},
+                {'k', 'o'}, {'l', 'y'}, {'m', 'r'}, {'n', 'q'}, {'o', 'u'},
+                {'p', 't'}, {'q', 's'}, {'r', 'w'}, {'s', 'c'}, {'t', 'b'},
+                {'u', 'a'}, {'v', 'd'}, {'w', 'e'}, {'x', 'i'}, {'y', 'j'},
+                {'z', 'h'}
+            };
+        }
+
+        // Funkcja szyfrująca tekst przy użyciu słownika
+        static string EncryptText(string input, Dictionary<char, char> cipher)
+        {
+            char[] encryptedChars = new char[input.Length];
+
+            // Przechodzimy przez każdy znak w tekście i zamieniamy go zgodnie z szyfrem
+            for (int i = 0; i < input.Length; i++)
+            {
+                char currentChar = input[i];
+
+                // Jeśli znak znajduje się w słowniku, zamieniamy go
+                if (cipher.ContainsKey(currentChar))
+                {
+                    encryptedChars[i] = cipher[currentChar];
+                }
+                else
+                {
+                    // Jeśli znak nie jest literą, pozostaje bez zmian (np. spacje, cyfry)
+                    encryptedChars[i] = currentChar;
+                }
+            }
+
+            return new string(encryptedChars);  // Zwracamy zaszyfrowany tekst
         }
 
         #region Quick Sort
